@@ -45,3 +45,9 @@ html[lang="ar"] .card-arrow {
     margin-left: 0;
     margin-right: 8px;
 }
+
+/* Arapça sayfada fiyatlar soldan sağa okunsun (ör. "600 TL") */
+html[lang="ar"] .content span {
+    direction: ltr;
+    unicode-bidi: isolate;
+}
