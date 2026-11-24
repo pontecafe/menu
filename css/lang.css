@@ -1,0 +1,38 @@
+@import url('https://fonts.googleapis.com/css2?family=Noto+Sans+Arabic:wght@400;500;600;700&display=swap');
+
+/* Dil değiştirme butonu */
+.lang-switch {
+    margin-left: auto;
+    align-self: center;
+    padding: 6px 14px;
+    border: 1px solid #997c45;
+    border-radius: 20px;
+    color: #3d6b4f;
+    font-size: 0.82rem;
+    font-weight: 600;
+    text-decoration: none;
+    white-space: nowrap;
+    transition: background 0.2s, color 0.2s;
+}
+.lang-switch:hover {
+    background: #3d6b4f;
+    color: #ffffff;
+}
+
+/* Arapça sayfalar */
+html[lang="ar"] body,
+html[lang="ar"] h1,
+html[lang="ar"] h2,
+html[lang="ar"] h4,
+html[lang="ar"] p,
+html[lang="ar"] span,
+html[lang="ar"] a {
+    font-family: 'Noto Sans Arabic', sans-serif;
+}
+html[lang="ar"] .logo::before {
+    content: '→';
+}
+html[lang="ar"] .card-arrow {
+    margin-left: 0;
+    margin-right: 8px;
+}
