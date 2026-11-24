@@ -2,8 +2,10 @@
 
 /* Dil değiştirme butonu */
 .lang-switch {
-    margin-left: auto;
-    align-self: center;
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    inset-inline-end: 36px;
     padding: 6px 14px;
     border: 1px solid #997c45;
     border-radius: 20px;
@@ -17,6 +19,13 @@
 .lang-switch:hover {
     background: #3d6b4f;
     color: #ffffff;
+}
+
+@media (max-width: 720px) {
+    .lang-switch { inset-inline-end: 20px; }
+}
+@media (max-width: 600px) {
+    .lang-switch { inset-inline-end: 16px; }
 }
 
 /* Arapça sayfalar */
