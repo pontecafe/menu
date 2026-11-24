@@ -1,0 +1,381 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Ponte Cafe — Menü</title>
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600;700&family=Playfair+Display:ital,wght@0,500;1,400&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" />
+  <style>
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+
+    :root {
+      --bg: #f9f8f5;
+      --white: #ffffff;
+      --green: #3d6b4f;
+      --gold: #997c45;
+      --text: #1e1e1e;
+      --text-muted: #888;
+      --radius: 16px;
+      --shadow: 0 2px 16px rgba(0,0,0,0.07);
+      --shadow-hover: 0 12px 40px rgba(0,0,0,0.14);
+    }
+
+    body {
+      font-family: 'Montserrat', sans-serif;
+      background: var(--bg);
+      color: var(--text);
+      min-height: 100vh;
+    }
+
+    /* ── HEADER ── */
+    header {
+      position: sticky;
+      top: 0;
+      z-index: 100;
+      background: var(--white);
+      border-bottom: 1px solid #ececec;
+      height: 62px;
+      padding: 0 36px;
+      display: flex;
+      align-items: center;
+    }
+
+    .header-back {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      color: var(--text-muted);
+      text-decoration: none;
+      font-size: 0.88rem;
+      font-weight: 500;
+      transition: color 0.2s;
+    }
+    .header-back:hover { color: var(--green); }
+
+    .header-logo {
+      font-family: 'Playfair Display', serif;
+      font-size: 1.45rem;
+      color: var(--text);
+      position: absolute;
+      left: 50%;
+      transform: translateX(-50%);
+      white-space: nowrap;
+    }
+
+    /* ── HERO ── */
+    .hero {
+      text-align: center;
+      padding: 56px 20px 36px;
+    }
+
+    .hero-tag {
+      display: inline-block;
+      background: #eef4f0;
+      color: var(--green);
+      font-size: 0.72rem;
+      font-weight: 600;
+      letter-spacing: 1.8px;
+      text-transform: uppercase;
+      padding: 6px 18px;
+      border-radius: 20px;
+      margin-bottom: 18px;
+    }
+
+    .hero h1 {
+      font-family: 'Playfair Display', serif;
+      font-size: 2.8rem;
+      font-weight: 500;
+      color: var(--text);
+      line-height: 1.2;
+    }
+
+    .hero p {
+      margin-top: 10px;
+      color: var(--text-muted);
+      font-size: 0.95rem;
+      font-weight: 300;
+    }
+
+    .hero-divider {
+      width: 44px;
+      height: 3px;
+      background: var(--gold);
+      border-radius: 2px;
+      margin: 20px auto 0;
+    }
+
+    /* ── NOTICE ── */
+    .notice {
+      background: #fff3cd;
+      border-top: 3px solid var(--gold);
+      border-bottom: 1px solid #ececec;
+      padding: 16px 20px;
+      text-align: center;
+      color: #856404;
+      font-size: 0.95rem;
+      font-weight: 500;
+    }
+
+    /* ── GRID ── */
+    .menu-grid {
+      max-width: 1160px;
+      margin: 0 auto;
+      padding: 24px 28px 80px;
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 20px;
+    }
+
+    /* ── CARD ── */
+    .menu-card {
+      background: var(--white);
+      border-radius: var(--radius);
+      overflow: hidden;
+      box-shadow: var(--shadow);
+      text-decoration: none;
+      display: flex;
+      flex-direction: column;
+      transition: transform 0.28s ease, box-shadow 0.28s ease;
+    }
+
+    .menu-card:hover {
+      transform: translateY(-5px);
+      box-shadow: var(--shadow-hover);
+    }
+
+    .card-img-wrap {
+      position: relative;
+      height: 170px;
+      overflow: hidden;
+      flex-shrink: 0;
+    }
+
+    .card-img-wrap img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      transition: transform 0.4s ease;
+    }
+
+    .menu-card:hover .card-img-wrap img {
+      transform: scale(1.06);
+    }
+
+    .card-img-wrap::after {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background: linear-gradient(to top, rgba(0,0,0,0.38) 0%, transparent 55%);
+      pointer-events: none;
+    }
+
+    .card-body {
+      padding: 14px 16px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      flex-grow: 1;
+    }
+
+    .card-name {
+      font-size: 0.92rem;
+      font-weight: 600;
+      color: var(--text);
+      line-height: 1.3;
+    }
+
+    .card-arrow {
+      color: var(--gold);
+      font-size: 0.8rem;
+      flex-shrink: 0;
+      margin-left: 8px;
+      transition: transform 0.2s;
+    }
+
+    .menu-card:hover .card-arrow {
+      transform: translateX(4px);
+    }
+
+    /* ── FOOTER ── */
+    footer {
+      text-align: center;
+      padding: 28px 20px;
+      border-top: 1px solid #ececec;
+      color: var(--text-muted);
+      font-size: 0.82rem;
+      background: var(--white);
+    }
+
+    /* ── RESPONSIVE ── */
+    @media (max-width: 1024px) {
+      .menu-grid { grid-template-columns: repeat(3, 1fr); }
+    }
+
+    @media (max-width: 720px) {
+      .menu-grid {
+        grid-template-columns: repeat(2, 1fr);
+        gap: 14px;
+        padding: 16px 16px 60px;
+      }
+      .hero h1 { font-size: 2rem; }
+      header { padding: 0 20px; }
+      .card-img-wrap { height: 140px; }
+    }
+
+    @media (max-width: 400px) {
+      .card-img-wrap { height: 120px; }
+      .card-name { font-size: 0.85rem; }
+    }
+  </style>
+</head>
+<body>
+
+  <header>
+    <a href="index.html" class="header-back">
+      <i class="fas fa-arrow-left"></i>&ensp;Ana Sayfa
+    </a>
+    <span class="header-logo">Ponte Cafe</span>
+  </header>
+
+  <section class="hero">
+    <span class="hero-tag">Menümüz</span>
+    <h1>Ne yemek istersiniz?</h1>
+    <p>Karadeniz'in doğasından ilham alan lezzetler</p>
+    <div class="hero-divider"></div>
+  </section>
+
+  <div class="notice">
+    Dış servis ücreti +300 TL'dir.
+  </div>
+
+  <main class="menu-grid">
+
+    <a href="kahvalti.html" class="menu-card">
+      <div class="card-img-wrap">
+        <img src="images/kahvaltiana.jpg" alt="Kahvaltılar" />
+      </div>
+      <div class="card-body">
+        <span class="card-name">Kahvaltılar</span>
+        <i class="fas fa-chevron-right card-arrow"></i>
+      </div>
+    </a>
+
+    <a href="izgaralar.html" class="menu-card">
+      <div class="card-img-wrap">
+        <img src="images/yemek1.jpg" alt="Izgaralar" />
+      </div>
+      <div class="card-body">
+        <span class="card-name">Izgaralar</span>
+        <i class="fas fa-chevron-right card-arrow"></i>
+      </div>
+    </a>
+
+    <a href="hamburgerler.html" class="menu-card">
+      <div class="card-img-wrap">
+        <img src="images/burger.jpg" alt="Hamburgerler" />
+      </div>
+      <div class="card-body">
+        <span class="card-name">Hamburgerler</span>
+        <i class="fas fa-chevron-right card-arrow"></i>
+      </div>
+    </a>
+
+    <a href="arasicaklar.html" class="menu-card">
+      <div class="card-img-wrap">
+        <img src="images/patates.png" alt="Ara Sıcaklar" />
+      </div>
+      <div class="card-body">
+        <span class="card-name">Ara Sıcaklar</span>
+        <i class="fas fa-chevron-right card-arrow"></i>
+      </div>
+    </a>
+
+    <a href="salatalar.html" class="menu-card">
+      <div class="card-img-wrap">
+        <img src="images/salata.png" alt="Salatalar" />
+      </div>
+      <div class="card-body">
+        <span class="card-name">Salatalar</span>
+        <i class="fas fa-chevron-right card-arrow"></i>
+      </div>
+    </a>
+
+    <a href="tatlilar.html" class="menu-card">
+      <div class="card-img-wrap">
+        <img src="images/tatlı1.jpg" alt="Tatlılar" />
+      </div>
+      <div class="card-body">
+        <span class="card-name">Tatlılar</span>
+        <i class="fas fa-chevron-right card-arrow"></i>
+      </div>
+    </a>
+
+    <a href="sicakkahveler.html" class="menu-card">
+      <div class="card-img-wrap">
+        <img src="images/sicakkahveler.jpg" alt="Sıcak Kahveler" />
+      </div>
+      <div class="card-body">
+        <span class="card-name">Sıcak Kahveler</span>
+        <i class="fas fa-chevron-right card-arrow"></i>
+      </div>
+    </a>
+
+    <a href="sogukkahveler.html" class="menu-card">
+      <div class="card-img-wrap">
+        <img src="images/sogukkahveler.jpg" alt="Soğuk Kahveler" />
+      </div>
+      <div class="card-body">
+        <span class="card-name">Soğuk Kahveler</span>
+        <i class="fas fa-chevron-right card-arrow"></i>
+      </div>
+    </a>
+
+    <a href="sicakicecekler.html" class="menu-card">
+      <div class="card-img-wrap">
+        <img src="images/hot1.jpg" alt="Sıcak İçecekler" />
+      </div>
+      <div class="card-body">
+        <span class="card-name">Sıcak İçecekler</span>
+        <i class="fas fa-chevron-right card-arrow"></i>
+      </div>
+    </a>
+
+    <a href="sogukicecekler.html" class="menu-card">
+      <div class="card-img-wrap">
+        <img src="images/smoothie3.jpg" alt="Soğuk İçecekler" />
+      </div>
+      <div class="card-body">
+        <span class="card-name">Soğuk İçecekler</span>
+        <i class="fas fa-chevron-right card-arrow"></i>
+      </div>
+    </a>
+
+    <a href="dondurma.html" class="menu-card">
+      <div class="card-img-wrap">
+        <img src="images/dondurma.webp" alt="Dondurma" />
+      </div>
+      <div class="card-body">
+        <span class="card-name">Dondurma</span>
+        <i class="fas fa-chevron-right card-arrow"></i>
+      </div>
+    </a>
+
+    <a href="frozen.html" class="menu-card">
+      <div class="card-img-wrap">
+        <img src="images/frozen.webp" alt="Frozen" />
+      </div>
+      <div class="card-body">
+        <span class="card-name">Frozen</span>
+        <i class="fas fa-chevron-right card-arrow"></i>
+      </div>
+    </a>
+
+  </main>
+
+  <footer>
+    &copy; 2025 Ponte Cafe — Tüm hakları saklıdır.
+  </footer>
+
+</body>
+</html>
